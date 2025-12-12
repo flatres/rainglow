@@ -1,11 +1,7 @@
-import { defineRouter } from '#q-app/wrappers'
-import {
-  createRouter,
-  createMemoryHistory,
-  createWebHistory,
-  createWebHashHistory,
-} from 'vue-router'
+import { route } from 'quasar/wrappers'
+import { createRouter, createMemoryHistory, createWebHistory, createWebHashHistory } from 'vue-router'
 import routes from './routes'
+import { Platform, LocalStorage } from 'quasar'
 
 /*
  * If not building with SSR mode, you can
@@ -16,12 +12,10 @@ import routes from './routes'
  * with the Router instance.
  */
 
-export default defineRouter(function (/* { store, ssrContext } */) {
+export default route(function (/* { store, ssrContext } */) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
-    : process.env.VUE_ROUTER_MODE === 'history'
-      ? createWebHistory
-      : createWebHashHistory
+    : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory)
 
   const Router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0 }),
@@ -30,7 +24,22 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     // Leave this as is and make changes in quasar.conf.js instead!
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
-    history: createHistory(process.env.VUE_ROUTER_BASE),
+    history: createHistory(process.env.VUE_ROUTER_BASE)
+  })
+
+  // ✅ Add analytics hook
+  Router.afterEach((to, from) => {
+    const userId = LocalStorage.getItem('userId')
+    const platform = Platform.is
+    const data = {
+      event: 'page_view',
+      isMobile: platform.mobile,
+      path: to.fullPath,
+      userId,
+      browser: platform.name,
+      platform: platform.platform
+    }
+    console.log(data)
   })
 
   return Router

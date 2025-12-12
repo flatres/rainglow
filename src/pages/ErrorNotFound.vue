@@ -1,19 +1,19 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
-    <div>
-      <div style="font-size: 30vh">404</div>
-
-      <div class="text-h2" style="opacity: 0.4">Oops. Nothing here...</div>
-
-      <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
-        unelevated
-        to="/"
-        label="Go Home"
-        no-caps
-      />
+  <div class="fullscreen bg-white text-white text-center q-pa-md flex flex-center">
+    <div class="row q-col-gutter-md justify-start content-start items-start col-12 q-pr-sm q-pt-md items-stretch">
+      <div class='full-width'>
+        <div class="full-width text-center q-mt-xl">
+          <q-img
+            @click="$router.push('/')"
+            src="~assets/logos/v3/smallWhite.png"
+            spinner-color="white"
+            fit="fill"
+            style="heightx: 48px; max-width: 190px"
+            class="q-mr-md qx-my-md"
+          />
+        </div>
+        <h1 class="full-width text-bold text-grey-7 q-mt-none text-center" style="font-size:25px">Nothing here</h1>
+      </div>
     </div>
   </div>
 </template>
@@ -22,6 +22,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ErrorNotFound',
+  name: 'ErrorNotFound'
 })
 </script>

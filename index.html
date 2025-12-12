@@ -1,24 +1,38 @@
-<!doctype html>
+<!-- https://www.freepik.com/free-vector/background_3752985.htm#query=global%20network&position=49&from_view=search&track=ais -->
+<!DOCTYPE html>
 <html>
   <head>
     <title><%= productName %></title>
 
-    <meta charset="utf-8" />
-    <meta name="description" content="<%= productDescription %>" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta
-      name="viewport"
-      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (ctx.mode.cordova || ctx.mode.capacitor) { %>, viewport-fit=cover<% } %>"
-    />
+    <meta charset="utf-8">
+    <meta name="description" content="<%= productDescription %>">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (ctx.mode.cordova || ctx.mode.capacitor) { %>, viewport-fit=cover<% } %>">
 
-    <link rel="icon" type="image/png" sizes="128x128" href="icons/favicon-128x128.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
-    <link rel="icon" type="image/ico" href="favicon.ico" />
+    <!-- <link rel="icon" type="image/png" sizes="128x128" href="icons/favicon-128x128-dark.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96-dark.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32-dark.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16-dark.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/ico" href="favicon-dark.ico">
+
+    <link rel="icon" type="image/png" sizes="128x128" href="icons/favicon-128x128-light.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96-light.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32-light.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16-light.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/ico" href="favicon-light.ico" media="(prefers-color-scheme: dark)"> -->
+
+    <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+    <link rel="shortcut icon" href="/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="LearnFlow" />
+    <link rel="manifest" href="/icons/site.webmanifest" />
   </head>
-  <body>
+  <body class="">
     <!-- quasar:entry-point -->
   </body>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
 </html>

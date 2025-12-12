@@ -31,3 +31,11 @@ yarn-error.log*
 
 # local .env files
 .env.local*
+.env
+/builds
+api/v1/logs/*.log
+/api/v1/public/filestore
+/api/v1/public/filestore*
+/api/v1/public/filestore/
+/api/v1/public/filestore/images/*
+

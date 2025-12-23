@@ -1,12 +1,12 @@
 <template>
   <q-page-container class="fit">
-    <q-page class="fit bg-white justify-center flex">
-      <div class="q-pa-md fit rainglow-wrapper bg-white">
+    <q-page class="fit bg-black justify-center flex">
+      <div class="q-pa-md fit rainglow-wrapper bg-black">
         <div class="text-subtitle1 q-mb-sm hidden">
           RainGlow – Current Light State
         </div>
 
-        <div v-if="!row" class="text-grey">
+        <div v-if="!row" class="text-white">
           No data loaded.
         </div>
 
@@ -48,7 +48,7 @@
             <div
               v-for="seg in segments"
               :key="'info-' + seg.index"
-              class="outer-led-info"
+              class="outer-led-info desktop-only text-white"
               :style="seg.infoStyle"
             >
               <div class="outer-led-time">
@@ -59,7 +59,7 @@
                   class="day-tag"
                   :class="seg.dayOffset === 0 ? 'day-today' : 'day-tomorrow'"
                 >
-                  {{ seg.dayOffset === 0 ? 'Today' : '+1' }}
+                  {{ seg.dayOffset === 0 ? 'T' : '+1' }}
                 </span>
                 <span class="q-ml-xs">
                   {{ seg.probRain.toFixed(0) }}% • {{ seg.rainMm.toFixed(1) }}mm
@@ -69,12 +69,12 @@
           </div>
 
           <!-- SUMMARY LINE -->
-          <div class="q-mt-sm text-body2 rg-summary q-mt-xl" v-if="summaryText" style="margin-top:100px">
+          <div class="q-mt-sm text-body2 rg-summary q-mt-xl desktop-only" v-if="summaryText" style="margin-top:100px">
             {{ summaryText }}
           </div>
 
           <!-- LEGEND -->
-          <div class="q-mt-md text-caption">
+          <div class="q-mt-md text-caption desktop-only text-white">
             <div class="text-center">
               <span class="legend-box legend-current"></span>
               Blinking outer LED = current time interval
@@ -373,7 +373,8 @@ export default {
   border-radius: 50%;
   margin: 0 auto;
 
-  background: radial-gradient(circle, #222 0%, #111 60%, #000 100%);
+  background: radial-gradient(circle, #8b8b8b 0%, #4f4f4f 60%, #5f5f5f 100%);
+  /* background: radial-gradient(circle, #222 0%, #111 60%, #000 100%); */
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.04),
     0 10px 25px rgba(0,0,0,0.6);

@@ -22,6 +22,8 @@ class Rainglow
       // $lat = isset($_GET['lat']) ? (float)$_GET['lat'] : 0.0;
       // $lon = isset($_GET['lon']) ? (float)$_GET['lon'] : 0.0;
 
+      if (isset($args['id'])) {}
+
       $lat = 51.42;
       $lon = -1.73;
 
@@ -96,7 +98,7 @@ class Rainglow
 
     public function stateGet($request, $response, $args)
     {
-      $data = $this->sql->query('Select * from rainglow_data ORDER BY timestamp DESC LIMIT 1', [])[0] ?? [];
+      $data = $this->sql->query('Select * from rainglow_data ORDER BY created_at DESC LIMIT 1', [])[0] ?? [];
       return emit($response, $data);
     }
 
